@@ -15,9 +15,9 @@ namespace ClassLibraryEntities
 
         public string Cpf_Cnpj { get; set; }
 
-        public DateTime Data_Nascimento { get; set; }
+        public string Data_Nascimento { get; set; }
 
-        public DateTime Data_Cadastro { get; set; }
+        public string Data_Cadastro { get; set; }
 
 
 

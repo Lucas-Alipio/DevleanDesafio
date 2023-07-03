@@ -1,0 +1,13 @@
+﻿.principal{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.cliente-info {
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    justify-content: center;
+    margin-right:20px;
+}
