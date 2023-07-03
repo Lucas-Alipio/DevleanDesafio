@@ -1,4 +1,5 @@
-﻿using ClassLibraryEntities;
+﻿using ClassLibraryBLL.Autenticacao;
+using ClassLibraryEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,45 +11,20 @@ namespace WebApplication.Clientes
 {
     public partial class Clientes : System.Web.UI.Page
     {
+        private ClienteBo _clienteBo;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            CarregarClientesNoRepeater();
+            if (!IsPostBack) {
+                CarregarClientesNoRepeater();
+            }
+            
         }
 
         private void CarregarClientesNoRepeater()
         {
-            RepeaterClientes.DataSource = new List<Cliente>
-            {
-                new Cliente
-                {
-                    Id = 1,
-                    Nome = "lucas",
-                    Tipo = false,
-                    Cpf_Cnpj ="xxxxxx",
-                    Data_Nascimento = new DateTime(2000, 01, 28).ToString("yyyy-MM-dd"),
-                    Data_Cadastro = DateTime.Today.ToString("yyyy-MM-dd"),
-                },
-
-                new Cliente
-                {
-                    Id = 1,
-                    Nome = "lucas2",
-                    Tipo = false,
-                    Cpf_Cnpj ="yyyyyy",
-                    Data_Nascimento = new DateTime(2000, 01, 29).ToString("yyyy-MM-dd"),
-                    Data_Cadastro = DateTime.Today.ToString("yyyy-MM-dd"),
-                },
-
-                new Cliente
-                {
-                    Id = 1,
-                    Nome = "lucas3",
-                    Tipo = false,
-                    Cpf_Cnpj ="zzzzz",
-                    Data_Nascimento = new DateTime(2000, 01, 20).ToString("yyyy-MM-dd"),
-                    Data_Cadastro = DateTime.Today.ToString("yyyy-MM-dd"),
-                },
-            };
+            _clienteBo = new ClienteBo();
+            RepeaterClientes.DataSource = _clienteBo.ObterTodosClientes();
 
             RepeaterClientes.DataBind();
         }

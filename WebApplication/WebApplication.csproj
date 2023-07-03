@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Autenticacao\Login.aspx" />
+    <Content Include="Clientes\CadastroEdicaoCliente.aspx" />
     <Content Include="Clientes\Clientes.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -98,6 +99,13 @@
     </Compile>
     <Compile Include="Autenticacao\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\CadastroEdicaoCliente.aspx.cs">
+      <DependentUpon>CadastroEdicaoCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\CadastroEdicaoCliente.aspx.designer.cs">
+      <DependentUpon>CadastroEdicaoCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clientes\Clientes.aspx.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>

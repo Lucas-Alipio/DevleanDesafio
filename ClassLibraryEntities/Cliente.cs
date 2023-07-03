@@ -11,7 +11,7 @@ namespace ClassLibraryEntities
         public string Nome { get; set; }
 
         //True = CPF / False = CNPJ
-        public bool Tipo { get; set; }
+        public int Tipo { get; set; }
 
         public string Cpf_Cnpj { get; set; }
 

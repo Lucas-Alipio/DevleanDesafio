@@ -16,7 +16,7 @@ namespace WebApplication.Autenticacao
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            LblStatus.Text = "";
         }
 
         protected void BtnLogin_Click(object sender, EventArgs e)
@@ -30,6 +30,8 @@ namespace WebApplication.Autenticacao
             {
                 var usuario = _longinBo.ObterUsuarioParaLogar(emailUsuario, senhaUsuario);
                 FormsAuthentication.RedirectFromLoginPage(emailUsuario, false);
+                Session.Timeout = 30;
+                Session["Perfil"] = usuario.Id;
             }
             catch (UsuarioNaoCadastradoException)
             {
