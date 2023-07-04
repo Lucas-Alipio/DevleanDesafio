@@ -17,6 +17,10 @@ namespace WebApplication.Autenticacao
         protected void Page_Load(object sender, EventArgs e)
         {
             LblStatus.Text = "";
+            if (Session["Perfil"] != null)
+            {
+                Response.Redirect("~/Clientes/Clientes.aspx");
+            }
         }
 
         protected void BtnLogin_Click(object sender, EventArgs e)
@@ -30,7 +34,6 @@ namespace WebApplication.Autenticacao
             {
                 var usuario = _longinBo.ObterUsuarioParaLogar(emailUsuario, senhaUsuario);
                 FormsAuthentication.RedirectFromLoginPage(emailUsuario, false);
-                Session.Timeout = 30;
                 Session["Perfil"] = usuario.Id;
             }
             catch (UsuarioNaoCadastradoException)
