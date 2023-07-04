@@ -11,7 +11,7 @@ namespace ClassLibraryEntities
         public string Nome { get; set; }
 
         //True = CPF / False = CNPJ
-        public int Tipo { get; set; }
+        public string Tipo { get; set; }
 
         public string Cpf_Cnpj { get; set; }
 
@@ -19,7 +19,7 @@ namespace ClassLibraryEntities
 
         public string Data_Cadastro { get; set; }
 
-
+        public int Id_usuario { get; set; }
 
     }
 }

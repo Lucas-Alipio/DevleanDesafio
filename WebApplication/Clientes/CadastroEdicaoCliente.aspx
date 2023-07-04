@@ -19,7 +19,7 @@
         <div class="form-group mt-3">
             <label for="exempleInputEmail1"> Tipo: </label>
             <asp:DropDownList runat="server" ID="Type" 
-                              DataValueField="Id" DataTextField="Descricao" 
+                              DataValueField="" DataTextField="" 
                               CssClass="form-control"></asp:DropDownList>
             <asp:RequiredFieldValidator ID="RfvTipo" runat="server" 
                                         ErrorMessage="Necessário preencher Tipo do Documento"
@@ -55,6 +55,10 @@
         </div>
 
         <asp:Button ID="BtnGravas" Text="Salvar" CssClass="btn btn-primary mt-4" runat="server" OnClick="BtnGravas_Click"/>
+
+        <asp:Label runat="server" ID="LblMessage"></asp:Label>
+
+        <a href="Clientes.aspx">Voltar</a>
 
     </div>
 
