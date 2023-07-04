@@ -20,6 +20,20 @@ namespace ClassLibraryBLL.Autenticacao
             return _clienteDao.ObterTodosClientes();
         }
 
+        public Cliente ObterClientePeloId(int id)
+        {
+            _clienteDao = new ClienteDao();
+
+            var cliente = _clienteDao.ObterClientePeloID(id);
+
+            if (cliente == null)
+            {
+                throw new ClienteNaoCadastradoException();
+            }
+
+            return cliente;
+        }
+
         public void InserirNovoCliente(Cliente cliente)
         {
             _clienteDao = new ClienteDao();
@@ -29,6 +43,20 @@ namespace ClassLibraryBLL.Autenticacao
             var linhasAfetadas = _clienteDao.InserirCliente(cliente);
             
             if(linhasAfetadas == 0)
+            {
+                throw new ClienteNaoCadastradoException();
+            }
+        }
+
+        public void EditarCliente(Cliente cliente)
+        {
+            _clienteDao = new ClienteDao();
+
+            ValidarCliente(cliente);
+
+            var linhasAfetadas = _clienteDao.EditarClientePeloID(cliente);
+
+            if (linhasAfetadas == 0)
             {
                 throw new ClienteNaoCadastradoException();
             }

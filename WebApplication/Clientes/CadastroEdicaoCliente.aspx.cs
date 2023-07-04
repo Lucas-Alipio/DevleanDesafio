@@ -17,6 +17,11 @@ namespace WebApplication.Clientes
         {
             if(!IsPostBack) {
                 CarregarTipo();
+
+                if (EstaEmModoEdicao())
+                {
+                    CarregarDadosParaEdicao();
+                } 
             }
         }
 
@@ -26,7 +31,7 @@ namespace WebApplication.Clientes
 
             var cliente = new Cliente();
 
-
+            cliente.Id = ObterIdDoCliente();
             cliente.Nome = Nome.Text;
             cliente.Tipo = Type.Text.ToString();
             cliente.Cpf_Cnpj = Cpf_cnpj.Text;
@@ -36,9 +41,15 @@ namespace WebApplication.Clientes
 
             try
             {
-                _clientesBo.InserirNovoCliente(cliente);
+                if(EstaEmModoEdicao())
+                {
+                    _clientesBo.EditarCliente(cliente);
+                }else
+                {
+                    _clientesBo.InserirNovoCliente(cliente);
+                }
                 LblMessage.ForeColor = System.Drawing.Color.Green;
-                LblMessage.Text = "Informações do Cliente Inseridas Com Sucesso!!!";
+                LblMessage.Text = "Informações do Cliente Salvas Com Sucesso!!!";
                 BtnGravas.Enabled = false;
             }
             catch 
@@ -46,14 +57,51 @@ namespace WebApplication.Clientes
                 LblMessage.ForeColor = System.Drawing.Color.Red;
                 LblMessage.Text = "Ocorreu um erro ao Tentar Salvar Informações do Cliente";
             }
-            
         }
 
+        private void CarregarDadosParaEdicao()
+        {
+            _clientesBo = new ClienteBo();
+
+            var id = ObterIdDoCliente();
+
+            var cliente = _clientesBo.ObterClientePeloId(id); 
+            
+            Nome.Text = cliente.Nome;
+            Type.Text = cliente.Tipo;
+            Cpf_cnpj.Text = cliente.Cpf_Cnpj;
+            DataNascimento.Text = cliente.Data_Nascimento;
+            DataCadastro.Text = cliente.Data_Cadastro;
+        }
+
+        public int ObterIdDoCliente()
+        {
+            var id = 0;
+            var idQueryString = Request.QueryString["id"];
+            if(int.TryParse(idQueryString, out id))
+            {
+                if(id <= 0)
+                {
+                    throw new Exception("ID Inválido");
+                }
+
+                return id;
+
+            }else
+            {
+                throw new Exception("ID Inválido!!");
+            }
+        }
         private void CarregarTipo ()
         {
             List<string> types = new List<string> { "CPF", "CNPJ" };
             Type.DataSource = types;
             Type.DataBind();
+        }
+
+        public bool EstaEmModoEdicao()
+        {
+            return Request.QueryString.AllKeys.Contains("id");
         }
     }
 }
