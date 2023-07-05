@@ -50,7 +50,7 @@ namespace ClassLibraryDAL
             }
         }
 
-        public Cliente ObterClientePeloID(int id) 
+        public Cliente ObterClientePeloID(int id)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace ClassLibraryDAL
                 command.Connection = Conexao.connection;
                 command.CommandText = "SELECT * FROM CLIENTE where id = @ID";
 
-                command.Parameters.AddWithValue("@ID",id);
+                command.Parameters.AddWithValue("@ID", id);
 
                 Conexao.Conectar();
 
@@ -88,8 +88,8 @@ namespace ClassLibraryDAL
             finally
             {
                 Conexao.Desconectar();
-            } 
-        }   
+            }
+        }
 
         public int InserirCliente(Cliente cliente)
         {
@@ -112,7 +112,7 @@ namespace ClassLibraryDAL
                                                ,@DATA_CADASTRO
                                                ,@ID_USUARIO)";
 
-                command.Parameters.AddWithValue("@NOME",cliente.Nome);
+                command.Parameters.AddWithValue("@NOME", cliente.Nome);
                 command.Parameters.AddWithValue("@TIPO", cliente.Tipo);
                 command.Parameters.AddWithValue("@CPF_CNPJ", cliente.Cpf_Cnpj);
                 command.Parameters.AddWithValue("@DATA_NASCIMENTO", Convert.ToDateTime(cliente.Data_Nascimento));
@@ -126,7 +126,9 @@ namespace ClassLibraryDAL
             catch (Exception)
             {
                 throw;
-            }finally { 
+            }
+            finally
+            {
                 Conexao.Desconectar();
             }
         }
@@ -151,6 +153,30 @@ namespace ClassLibraryDAL
                 command.Parameters.AddWithValue("@DATA_NASCIMENTO", Convert.ToDateTime(cliente.Data_Nascimento));
                 command.Parameters.AddWithValue("@DATA_CADASTRO", Convert.ToDateTime(cliente.Data_Cadastro));
                 command.Parameters.AddWithValue("@ID", cliente.Id);
+
+                Conexao.Conectar();
+
+                return command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Conexao.Desconectar();
+            }
+        }
+
+        public int ExcluirClientePeloID(int id)
+        {
+            try
+            {
+                var command = new SqlCommand();
+                command.Connection = Conexao.connection;
+                command.CommandText = @"DELETE FROM [dbo].[cliente] WHERE id = @ID";
+
+                command.Parameters.AddWithValue("@ID", id);
 
                 Conexao.Conectar();
 

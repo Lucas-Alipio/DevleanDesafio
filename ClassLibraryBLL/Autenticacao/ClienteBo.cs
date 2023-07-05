@@ -62,6 +62,18 @@ namespace ClassLibraryBLL.Autenticacao
             }
         }
 
+        public void ExcluirCliente(int id)
+        {
+            _clienteDao = new ClienteDao();
+
+            var linhasAfetadas = _clienteDao.ExcluirClientePeloID(id);
+
+            if (linhasAfetadas == 0)
+            {
+                throw new ClienteNaoCadastradoException();
+            }
+        }
+
         public void ValidarCliente(Cliente cliente)
         {
             if(string.IsNullOrWhiteSpace(cliente.Nome) || 

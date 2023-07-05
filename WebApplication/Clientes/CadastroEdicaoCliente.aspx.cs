@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.DynamicData;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -27,7 +28,27 @@ namespace WebApplication.Clientes
 
         protected void BtnExcluir_Click(object sender, EventArgs e)
         {
+            _clientesBo = new ClienteBo();
 
+            var cliente = new Cliente();
+
+            cliente.Id = ObterIdDoCliente();
+
+            try
+            {
+                _clientesBo.ExcluirCliente(cliente.Id);
+
+                LblMessage.ForeColor = System.Drawing.Color.Green;
+                LblMessage.Text = "Cliente Excluido Com Sucesso!!!";
+                BtnGravas.Enabled = false;
+
+                Response.Redirect("~/Clientes/Clientes.aspx");
+            }
+            catch
+            {
+                LblMessage.ForeColor = System.Drawing.Color.Red;
+                LblMessage.Text = "Ocorreu um erro ao Tentar Excluir Cliente";
+            }
         }
 
         protected void BtnGravas_Click(object sender, EventArgs e)
@@ -36,7 +57,7 @@ namespace WebApplication.Clientes
 
             var cliente = new Cliente();
 
-            cliente.Id = ObterIdDoCliente();
+            
             cliente.Nome = Nome.Text;
             cliente.Tipo = Type.Text.ToString();
             cliente.Cpf_Cnpj = Cpf_cnpj.Text;
@@ -48,6 +69,7 @@ namespace WebApplication.Clientes
             {
                 if(EstaEmModoEdicao())
                 {
+                    cliente.Id = ObterIdDoCliente();
                     _clientesBo.EditarCliente(cliente);
                 }else
                 {

@@ -149,5 +149,29 @@ namespace ClassLibraryDAL
                 Conexao.Desconectar();
             }
         }
+
+        public int ExcluirUsuarioPeloID(Usuario usuario)
+        {
+            try
+            {
+                var command = new SqlCommand();
+                command.Connection = Conexao.connection;
+                command.CommandText = @"DELETE FROM [dbo].[usuarios] WHERE id = @ID";
+
+                command.Parameters.AddWithValue("@ID", usuario.Id);
+
+                Conexao.Conectar();
+
+                return command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                Conexao.Desconectar();
+            }
+        }
     }
 }

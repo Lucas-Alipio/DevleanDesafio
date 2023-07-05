@@ -65,5 +65,10 @@ namespace WebApplication.Autenticacao
                 LblStatus.Text = "Ocorreu um erro inesperado!!";
             }
         }
+
+        protected void BtnCadastrar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Usuario/EdicaoUsuario.aspx");
+        }
     }
 }

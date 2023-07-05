@@ -47,7 +47,7 @@ namespace ClassLibraryBLL.Autenticacao
 
             ValidarUsuario(usuario);
 
-            var linhasAfetadas = _usuarioDao.EditarUsuarioPeloID(usuario);
+            var linhasAfetadas = _usuarioDao.InserirUsuario(usuario);
 
             if (linhasAfetadas == 0)
             {
@@ -62,6 +62,20 @@ namespace ClassLibraryBLL.Autenticacao
             ValidarUsuario(usuario);
 
             var linhasAfetadas = _usuarioDao.EditarUsuarioPeloID(usuario);
+
+            if (linhasAfetadas == 0)
+            {
+                throw new ClienteNaoCadastradoException();
+            }
+        }
+
+        public void ExcluirUsuario(Usuario usuario)
+        {
+            _usuarioDao = new UsuarioDao();
+
+            ValidarUsuario(usuario);
+
+            var linhasAfetadas = _usuarioDao.ExcluirUsuarioPeloID(usuario);
 
             if (linhasAfetadas == 0)
             {

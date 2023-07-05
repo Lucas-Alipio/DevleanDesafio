@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -27,11 +28,6 @@ namespace WebApplication.Usuario
 
         protected void BtnExcluir_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void BtnGravas_Click(object sender, EventArgs e)
-        {
             _usuarioBo = new UsuarioBo();
 
             var usuario = new ClassLibraryEntities.Usuario();
@@ -43,8 +39,39 @@ namespace WebApplication.Usuario
 
             try
             {
+                _usuarioBo.ExcluirUsuario(usuario);
+
+                LblMessage.ForeColor = System.Drawing.Color.Green;
+                LblMessage.Text = "Usuario Excluido Com Sucesso!!!";
+                BtnGravas.Enabled = false;
+
+                FormsAuthentication.SignOut();
+                Session.Abandon();
+                Response.Redirect("~/Autenticacao/Login.aspx");  
+            }
+            catch
+            {
+                LblMessage.ForeColor = System.Drawing.Color.Red;
+                LblMessage.Text = "Ocorreu um erro ao Tentar Excluir Usuario";
+            }
+        }
+
+        protected void BtnGravas_Click(object sender, EventArgs e)
+        {
+            _usuarioBo = new UsuarioBo();
+
+            var usuario = new ClassLibraryEntities.Usuario();
+
+            
+            usuario.Nome = Nome.Text;
+            usuario.Email = Email.Text;
+            usuario.Senha = Senha.Text;
+
+            try
+            {
                 if (EstaEmModoEdicao())
                 {
+                    usuario.Id = ObterIdDoUsuario();
                     _usuarioBo.EditarUsuario(usuario);
                 }
                 else

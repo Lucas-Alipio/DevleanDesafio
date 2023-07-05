@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div >
+        <div class="container" >
             <div> Usuário: </div>
             <div> <asp:TextBox ID="Email" runat="server" Width="124px"></asp:TextBox> </div> 
 
@@ -23,6 +23,8 @@
                 <asp:Label runat="server" ID="LblStatus"></asp:Label>
             </div>
             <asp:Button ID="BtnLogin" Text="Entrar" runat="server" OnClick="BtnLogin_Click"/>
+
+            <!--<asp:Button ID="BtnCadastrar" Text="Cadastrar" runat="server" OnClick="BtnCadastrar_Click"/>-->
         </div>
     </form>
 </body>
