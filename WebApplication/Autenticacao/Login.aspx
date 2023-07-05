@@ -9,23 +9,38 @@
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="container" >
-            <div> Usuário: </div>
-            <div> <asp:TextBox ID="Email" runat="server" Width="124px"></asp:TextBox> </div> 
+    <h1 class="display-1 text-center  p-5"> Devlean </h1>
+    <div class="d-flex justify-content-center vh-100 p-4">
+        <form id="form1" runat="server">
+            <div>
+                <div class="row justify-content-center">
+                    <label for="exempleInputEmail1" class="col-sm-2 col-form-label mb-5"> Email: </label>
+                    <div class="col-sm-10">
+                        <asp:TextBox runat="server" ID="Email" CssClass="form-control"></asp:TextBox>
+                    </div> 
+                </div>
 
-            <br />
-            
-            <div> Senha: </div>
-            <div> <asp:TextBox ID="Senha" runat="server" TextMode="Password" Width="126px"></asp:TextBox> </div>
-        
-            <div> 
-                <asp:Label runat="server" ID="LblStatus"></asp:Label>
+                <div class="row justify-content-center">
+                    <label for="exempleInputEmail1" class="col-sm-2 col-form-label mb-3"> Senha: </label>
+                    <div class="col-sm-10">
+                        <asp:TextBox runat="server" ID="Senha" CssClass="form-control"></asp:TextBox>
+                    </div> 
+                </div>
+
+                <div class="d-flex justify-content-center"> 
+                    <asp:Label runat="server" ID="LblStatus" CssClass="m-2 text-danger"></asp:Label>
+                </div>
+
+                <div class="row mt-4  m-1">
+                    <div class="d-grid gap-4 d-md-flex col col-lg-11 justify-content-center">
+                        <asp:Button ID="BtnLogin" Text="Entrar" CssClass="btn btn-success " runat="server" OnClick="BtnLogin_Click"/>
+                    </div>
+                </div>
+
+                <!--<asp:Button ID="BtnCadastrar" Text="Cadastrar" runat="server" OnClick="BtnCadastrar_Click"/>-->
             </div>
-            <asp:Button ID="BtnLogin" Text="Entrar" runat="server" OnClick="BtnLogin_Click"/>
+        </form>
 
-            <!--<asp:Button ID="BtnCadastrar" Text="Cadastrar" runat="server" OnClick="BtnCadastrar_Click"/>-->
-        </div>
-    </form>
+    </div>
 </body>
 </html>
