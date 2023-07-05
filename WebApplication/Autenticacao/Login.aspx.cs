@@ -17,9 +17,28 @@ namespace WebApplication.Autenticacao
         protected void Page_Load(object sender, EventArgs e)
         {
             LblStatus.Text = "";
-            if (Session["Perfil"] != null)
+            if (!IsPostBack)
             {
-                Response.Redirect("~/Clientes/Clientes.aspx");
+                Deslogar();
+
+                if (Session["Perfil"] !=null)
+                {
+                    Response.Redirect("~/Clientes/Clientes.aspx");
+                }
+                //Response.Redirect("~/Clientes/Clientes.aspx");
+            }
+        }
+
+        private void Deslogar()
+        {
+            string aux = Page.Request.Url.ToString();
+            string var = Page.Request.QueryString["logout"];
+            if (!string.IsNullOrEmpty(var))
+            {
+                FormsAuthentication.SignOut();
+                Session.Abandon();
+                //FormsAuthentication.RedirectToLoginPage();
+                Response.Redirect("/Autenticacao/Login.aspx");
             }
         }
 

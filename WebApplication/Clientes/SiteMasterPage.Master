@@ -23,8 +23,8 @@
                         <asp:MenuItem Text="Cadastrar novo" Value="Cadastrar novo"></asp:MenuItem>
                     </asp:MenuItem>
 
-                    <asp:MenuItem Text="Opções" Value="Opções">
-                        <asp:MenuItem Text="Sair" Value="Sair"></asp:MenuItem>
+                    <asp:MenuItem Text="Opcoes" Value="Opcoes">
+                        <asp:MenuItem Text="Sair" Value="Sair" NavigateUrl="~/Autenticacao/Login.aspx?logout=logout"></asp:MenuItem>
                     </asp:MenuItem>
 
                 </Items>
