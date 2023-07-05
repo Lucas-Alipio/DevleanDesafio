@@ -2,6 +2,7 @@
 using ClassLibraryBLL.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -54,6 +55,9 @@ namespace WebApplication.Autenticacao
                 var usuario = _longinBo.ObterUsuarioParaLogar(emailUsuario, senhaUsuario);
                 FormsAuthentication.RedirectFromLoginPage(emailUsuario, false);
                 Session["Perfil"] = usuario.Id;
+
+
+                string value = Session["Perfil"].ToString();
             }
             catch (UsuarioNaoCadastradoException)
             {

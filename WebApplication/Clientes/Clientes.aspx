@@ -32,7 +32,7 @@
 
     <script>
         function redirecionarParaPaginaDoCliente(perfil, id) {
-            if (perfil === "1") {
+            if (perfil != null) {
                 top.location.href = "CadastroEdicaoCliente.aspx?id=" + id;
             } else {
                 top.location.href = "/Autenticacao/Login.aspx"

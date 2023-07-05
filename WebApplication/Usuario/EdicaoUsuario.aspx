@@ -4,9 +4,9 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <a class="btn btn-primary" role="button" href="EdicaoUsuario.aspx">Cadastrar Novo Usuario</a>
+    <a class="btn btn-primary mb-5 p-2" role="button" href="EdicaoUsuario.aspx">Cadastrar Novo Usuario</a>
 
-    <div class="container text-start">
+    <div class="container text-start mt-1">
         
 
         <div class="row">
