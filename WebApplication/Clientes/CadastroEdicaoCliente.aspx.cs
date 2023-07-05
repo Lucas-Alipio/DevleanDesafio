@@ -25,6 +25,11 @@ namespace WebApplication.Clientes
             }
         }
 
+        protected void BtnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
         protected void BtnGravas_Click(object sender, EventArgs e)
         {
             _clientesBo = new ClienteBo();

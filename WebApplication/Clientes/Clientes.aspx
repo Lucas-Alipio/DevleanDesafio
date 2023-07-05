@@ -8,9 +8,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../Content/Clientes/Cliente.css" rel="stylesheet" />
 
-    <h2 style="margin-top: 30px;">Lista de Clientes</h2>
+    <h2>Lista de Clientes</h2>
   
-    <a href="CadastroEdicaoCliente.aspx">Cadastrar Novo Cliente</a>
+    <a class="btn btn-primary" role="button" href="CadastroEdicaoCliente.aspx">Cadastrar Novo Cliente</a>
 
     <div class="principal">
         <asp:Repeater ID="RepeaterClientes" runat="server">

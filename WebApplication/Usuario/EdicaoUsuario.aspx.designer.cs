@@ -7,11 +7,11 @@
 // </gerado automaticamente>
 //------------------------------------------------------------------------------
 
-namespace WebApplication.Clientes
+namespace WebApplication.Usuario
 {
 
 
-    public partial class CadastroEdicaoCliente
+    public partial class EdicaoUsuario
     {
 
         /// <summary>
@@ -33,76 +33,40 @@ namespace WebApplication.Clientes
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvNome;
 
         /// <summary>
-        /// Controle Type.
+        /// Controle Email.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Type;
+        protected global::System.Web.UI.WebControls.TextBox Email;
 
         /// <summary>
-        /// Controle RfvTipo.
+        /// Controle RfvEmail.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvTipo;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvEmail;
 
         /// <summary>
-        /// Controle Cpf_cnpj.
+        /// Controle Senha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cpf_cnpj;
+        protected global::System.Web.UI.WebControls.TextBox Senha;
 
         /// <summary>
-        /// Controle RfvCpfCnpj.
+        /// Controle RfvSenha.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvCpfCnpj;
-
-        /// <summary>
-        /// Controle DataNascimento.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DataNascimento;
-
-        /// <summary>
-        /// Controle RfvDataNascimento.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvDataNascimento;
-
-        /// <summary>
-        /// Controle DataCadastro.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DataCadastro;
-
-        /// <summary>
-        /// Controle RfvDataCadastro.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvDataCadastro;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvSenha;
 
         /// <summary>
         /// Controle BtnGravas.
