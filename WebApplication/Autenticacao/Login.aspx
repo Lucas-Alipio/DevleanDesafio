@@ -23,7 +23,7 @@
                 <div class="row justify-content-center">
                     <label for="exempleInputEmail1" class="col-sm-2 col-form-label mb-3"> Senha: </label>
                     <div class="col-sm-10">
-                        <asp:TextBox runat="server" ID="Senha" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="Senha" CssClass="form-control" TextMode="Password"></asp:TextBox>
                     </div> 
                 </div>
 
