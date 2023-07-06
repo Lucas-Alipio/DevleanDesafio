@@ -4,11 +4,15 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <a class="btn btn-primary mb-5 p-2" role="button" href="EdicaoUsuario.aspx">Cadastrar Novo Usuario</a>
+
+    <div>
+        <div class="row justify-content-center">
+            <a class="col-auto justify-content-center btn btn-primary mb-5 p-2" role="button" href="EdicaoUsuario.aspx">Cadastrar Novo Usuario</a>
+        </div>
+    </div>
+    
 
     <div class="container text-start mt-1">
-        
-
         <div class="row">
             <label for="exempleInputEmail1" class="col-sm-2 col-form-label"> Nome: </label>
             <div class="col-sm-5">
