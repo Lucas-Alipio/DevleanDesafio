@@ -17,7 +17,9 @@ namespace ClassLibraryBLL.Autenticacao
         {
             _usuarioDao = new UsuarioDao();
 
-            var usuario = _usuarioDao.ObterUsuarioPeloEmailESenha(email, senha);
+            var senhaEncrypted = UsuarioBo.EncryptPassword(senha);
+
+            var usuario = _usuarioDao.ObterUsuarioPeloEmailESenha(email, senhaEncrypted);
             
             if(usuario == null)
             {

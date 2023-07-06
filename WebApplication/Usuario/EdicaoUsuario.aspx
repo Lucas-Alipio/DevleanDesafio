@@ -34,7 +34,7 @@
         <div class="row">
             <label for="exempleInputEmail1" class="col-sm-2 col-form-label"> Senha: </label>
             <div class="col-sm-2">
-                <asp:TextBox runat="server" ID="Senha" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox runat="server" ID="Senha"  CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RfvSenha" runat="server"
                     ErrorMessage="Necessário preencher Senha"
                     ForeColor="Red" Font-Size="14px"
