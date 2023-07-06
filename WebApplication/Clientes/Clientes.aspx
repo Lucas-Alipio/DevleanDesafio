@@ -7,11 +7,18 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="../Content/Clientes/Cliente.css" rel="stylesheet" />
+    
+    <div class="row justify-content-center">
+        <div class="col-auto p-2 mb-1 justify-content-center">
+            <h2>Lista de Clientes</h2>
+        </div>
+    </div>
 
-    <h2>Lista de Clientes</h2>
-  
-    <a class="btn btn-primary" role="button" href="CadastroEdicaoCliente.aspx">Cadastrar Novo Cliente</a>
-
+    <div class="row justify-content-center">
+        <div class="col-auto p-2 mb-1 justify-content-center">
+            <a class="btn btn-primary" role="button" href="CadastroEdicaoCliente.aspx">Cadastrar Novo Cliente</a>
+        </div>
+    </div>
 
     <div class="principal">
         <asp:Repeater ID="RepeaterClientes" runat="server">
