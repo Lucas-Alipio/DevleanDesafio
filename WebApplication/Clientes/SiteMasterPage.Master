@@ -18,14 +18,17 @@
         <div>
             <nav class="navbar navbar-expand-lg  mb-5">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="../../Clientes/Clientes.aspx">Clientes</a>
-                    
+                    <h5>
+                        <a class="navbar-brand" href="../../Clientes/Clientes.aspx">Clientes</a>
+                    </h5>
 
-                    <a class="navbar-brand" id="Caminho" href='<%= "../Usuario/EdicaoUsuario.aspx?id=" + Session["Perfil"].ToString() %>'>Meu Perfil</a>
-                   
+                    <h5>
+                        <a class="navbar-brand" id="Caminho" href='<%= "../Usuario/EdicaoUsuario.aspx?id=" + Session["Perfil"].ToString() %>'>Meu Perfil</a>
+                    </h5>
 
-                    <a class="navbar-brand" href="../Autenticacao/Login.aspx?logout=logout">Sair</a>
-                    
+                    <h5>
+                        <a class="navbar-brand" href="../Autenticacao/Login.aspx?logout=logout">Sair</a>
+                    </h5>
                 </div>  
             </nav>
             
